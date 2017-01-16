@@ -12,8 +12,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function showName(Request $request){
-	$name = ucfirst($request->input("name"));
-        return view('welcome')->with('name', $name);
+    public function showName(Request $request) {
+        $names = explode(" ", $request->input("name"));
+	for( $i = 0; $i < count($names); $i++) {
+            $names[$i] = ucfirst($names[$i]);
+        }
+        return view('welcome')->with('name', implode(" ", $names));
     }
 }
