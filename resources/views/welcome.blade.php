@@ -10,8 +10,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}">
+        <script type="text/javascript" src="{{ URL::asset('js/welcome.js') }}"></script>
     </head>
-    <body>
+    <body onclick="foo()">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -33,11 +34,24 @@
                     @endif
                 </div>
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <a href="google.com" onmouseover="show(foodtip)" onmouseout="hide(foodtip)">
+                        Food
+                        <div class="tooltip" id="foodtip">
+                            Take a bite!
+                        </div>
+                    </a>
+                    <a href="https://laracasts.com" onmouseover="show(phototip)" onmouseout="hide(phototip)">
+                        Photography
+                        <div class="tooltip" id="phototip">
+                            Mind blowing shots!
+                        </div>
+                    </a>
+                    <a href="https://laravel-news.com" onmouseover="show(codetip)" onmouseout="hide(codetip)">
+                        Code
+                        <div class="tooltip" id="codetip">
+                            Elegantly imperfect code
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
