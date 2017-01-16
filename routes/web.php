@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  array('as' => 'welcome', 'uses' => 'Controller@showName'));
+
+//function () {
+//    return view('welcome');
+//});

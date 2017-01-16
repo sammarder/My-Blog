@@ -26,7 +26,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
+                    @if ($name)
+                       {{ $name }}
+                    @else
                     Laravel
+                    @endif
                 </div>
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
