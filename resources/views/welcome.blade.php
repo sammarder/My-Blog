@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}">
         <script type="text/javascript" src="{{ URL::asset('js/welcome.js') }}"></script>
     </head>
-    <body onclick="foo('{{ $name }}')">
+    <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -26,25 +26,31 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    @if ($name)
-                       {{ $name }}
-                    @else
-                    Laravel
-                    @endif
+                <div class="row">
+                    <div class="title m-b-md">
+                        @if ($name)
+                            {{ $name }}
+                        @else
+                            Laravel
+                        @endif
+                    </div>
                 </div>
-                <div class="links">
-                    @foreach($links as $link)
-                    <a href="{{ $link->link }}" onmouseover="show({{ $link->div_id }})" onmouseout="hide({{ $link->div_id }})">
-                        {{ $link->link_text }}
-                        <div class="tooltip" id="{{ $link->div_id }}">
-                            {{ $link->tip }}
-                        </div>
-                    </a>
-                    @endforeach
+                <div class="row">
+                    <div class="links">
+                        @foreach($links as $link)
+                        <a href="{{ $link->link }}" onmouseover="show({{ $link->div_id }})" onmouseout="hide({{ $link->div_id }})">
+                            {{ $link->link_text }}
+                            <div class="tooltip" id="{{ $link->div_id }}">
+                                {{ $link->tip }}
+                            </div>
+                        </a>
+                        @endforeach
+                    </div>
                 </div>
-                <div>
-                    <img src="{{ URL::asset('img/fall.jpg') }}" style="width:304px;height:203px;">
+                <div class="row">
+                    <div class="polaroid">
+                        <img src="{{ URL::asset('img/fall.jpg') }}" style="width=100%">
+                    </div>
                 </div>
             </div>
         </div>
