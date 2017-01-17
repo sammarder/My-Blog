@@ -40,13 +40,13 @@
                             Take a bite!
                         </div>
                     </a>
-                    <a href="https://laracasts.com" onmouseover="show(phototip)" onmouseout="hide(phototip)">
+                    <a href="laracasts.com" onmouseover="show(phototip)" onmouseout="hide(phototip)">
                         Photography
                         <div class="tooltip" id="phototip">
                             Mind blowing shots!
                         </div>
                     </a>
-                    <a href="https://laravel-news.com" onmouseover="show(codetip)" onmouseout="hide(codetip)">
+                    <a href="laravel-news.com" onmouseover="show(codetip)" onmouseout="hide(codetip)">
                         Code
                         <div class="tooltip" id="codetip">
                             Elegantly imperfect code
