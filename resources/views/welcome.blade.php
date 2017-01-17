@@ -34,24 +34,14 @@
                     @endif
                 </div>
                 <div class="links">
-                    <a href="google.com" onmouseover="show(foodtip)" onmouseout="hide(foodtip)">
-                        Food
-                        <div class="tooltip" id="foodtip">
-                            Take a bite!
+                    @foreach($links as $link)
+                    <a href="{{ $link->link }}" onmouseover="show({{ $link->div_id }})" onmouseout="hide({{ $link->div_id }})">
+                        {{ $link->link_text }}
+                        <div class="tooltip" id="{{ $link->div_id }}">
+                            {{ $link->tip }}
                         </div>
                     </a>
-                    <a href="laracasts.com" onmouseover="show(phototip)" onmouseout="hide(phototip)">
-                        Photography
-                        <div class="tooltip" id="phototip">
-                            Mind blowing shots!
-                        </div>
-                    </a>
-                    <a href="laravel-news.com" onmouseover="show(codetip)" onmouseout="hide(codetip)">
-                        Code
-                        <div class="tooltip" id="codetip">
-                            Elegantly imperfect code
-                        </div>
-                    </a>
+                    @endforeach
                 </div>
             </div>
         </div>
