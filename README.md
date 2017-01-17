@@ -10,6 +10,8 @@ Lessons learned:
 
 * Database connections can be a pain to set up some times, required install of php5-mysql and apache reboot to get it working
 
+* In order for images to be seen, they must be linked in the main directory of the website
+
 * TODO: Have photography respond to the arrow keys
 
 * TODO: Research how to get PHP to read camera/lens and other settings for each shot
