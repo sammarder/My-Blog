@@ -1,5 +1,5 @@
-function foo() {
-    alert("hey buddy!");
+function foo(name) {
+    alert("hey " + name);
 }
 
 function show (elem) {  

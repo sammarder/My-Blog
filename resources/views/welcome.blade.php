@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}">
         <script type="text/javascript" src="{{ URL::asset('js/welcome.js') }}"></script>
     </head>
-    <body onclick="foo()">
+    <body onclick="foo('{{ $name }}')">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
