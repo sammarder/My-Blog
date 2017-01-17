@@ -6,6 +6,8 @@ Lessons learned:
 
 * In order for name to be passed thru, a controller function is a possible solution (tho there should be other ways)
 
+* Positioning in CSS matters a lot in maintaining the look of a page
+
 * TODO: Have photography respond to the arrow keys
 
 * TODO: Research how to get PHP to read camera/lens and other settings for each shot
