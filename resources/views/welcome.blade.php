@@ -43,7 +43,12 @@
                     </a>
                     @endforeach
                 </div>
+                <div>
+                    <img src="{{ URL::asset('img/fall.jpg') }}" style="width:304px;height:203px;">
+                </div>
             </div>
+        </div>
+        <div>
         </div>
     </body>
 </html>
