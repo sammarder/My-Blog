@@ -9,3 +9,11 @@ Lessons learned:
 * TODO: Have photography respond to the arrow keys
 
 * TODO: Research how to get PHP to read camera/lens and other settings for each shot
+
+* Scope during unemployment: 
+
+    1. SQL driven as far as removing hardcoded strings
+
+    2. POC limited on JS bells and whistles
+
+    3. Keep PHP reasonably tidy
