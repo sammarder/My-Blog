@@ -14,6 +14,8 @@ Lessons learned:
 
 * TODO: Have photography respond to the arrow keys
 
+* TODO: Possibly figure out how to get the image to move
+
 * TODO: Research how to get PHP to read camera/lens and other settings for each shot
 
 * Scope during unemployment: 
