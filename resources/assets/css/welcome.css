@@ -56,3 +56,7 @@ div.container {
   text-color: #636b6f;
   padding: 10px 20px;
 }
+img {
+  max-height: 400px;
+  width: auto;
+}

@@ -48,13 +48,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="polaroid">
-                        <img src="{{ URL::asset('img/fall.jpg') }}" style="width=100%">
+                    <div>
+                        <img src="{{ URL::asset('img/fall.jpg') }}">
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
         </div>
     </body>
 </html>
