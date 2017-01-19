@@ -12,6 +12,8 @@ Lessons learned:
 
 * In order for images to be seen, they must be linked in the main directory of the website
 
+* Music is easy to play but ill be damned if i can get any decent data out of it
+
 * TODO: Have photography respond to the arrow keys
 
 * TODO: Possibly figure out how to get the image to move
