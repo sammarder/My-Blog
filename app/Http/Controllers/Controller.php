@@ -24,6 +24,7 @@ class Controller extends BaseController
         }
 	$query = Link::where("owner", "=", $name);
         $links = $query->get();
+        //print_r(exif_read_data("/home/pi/blog/public/img/noms.jpg"));
         return view('welcome')->with('name', $name)->with('links', $links);
     }
 }
