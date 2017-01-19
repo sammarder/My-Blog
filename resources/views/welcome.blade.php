@@ -52,6 +52,11 @@
                         <img src="{{ URL::asset('img/fall.jpg') }}">
                     </div>
                 </div>
+                <div class="row">
+                    <audio controls>
+                        <source src="{{ URL::asset('music/11 - Steampowered.mp3') }}" type="audio/mpeg">
+                    </audio>
+                </div>
             </div>
         </div>
     </body>

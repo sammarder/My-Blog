@@ -4,5 +4,6 @@ import glob
 for path in glob.glob("/home/pi/Music/Approaching Nirvana/Blocking the Sky/*mp3"):
 	a = MP3(path) 
 	m = Mp3AudioFile(path)
-	line = "'" + str(m.tag.title) + "','" + str(m.tag.album) + "','" + str(m.tag.artist) + "'," + str(a.info.length) + ",'" + m.info.bit_rate_str + "'"
+	length = str(int(a.info.length / 60)) + ":" + "%02d" % (int(a.info.length % 60))
+	line = "('" + str(m.tag.title) + "','" + str(m.tag.album) + "','" + str(m.tag.artist) + "','" + length + "','" + m.info.bit_rate_str + "')"
 	print line
