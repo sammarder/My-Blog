@@ -17,3 +17,14 @@ INSERT INTO `blog`.`links` (owner, div_id, link_text, link, tip) VALUES
 ("Laravel", NULL, "News", "https://laravel-news.com/", NULL), 
 ("Laravel", NULL, "Forge", "https://forge.laravel.com/", NULL), 
 ("Laravel", NULL, "GitHub", "https://github.com/laravel/laravel", NULL);
+
+CREATE TABLE `blog`.`music` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `album` varchar(255) NOT NULL,
+  `artist` varchar(255) DEFAULT NULL,
+  `track_time` varchar(10) NOT NULL,
+  `bit_rate` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+);
