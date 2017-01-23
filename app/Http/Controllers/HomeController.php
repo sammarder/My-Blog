@@ -38,34 +38,10 @@ class HomeController extends Controller
         }
         $query = Link::where("owner", "=", $name);
         $links = $query->get();
-        $trackRequest = ($request->input("trackNum") ? $request->input("trackNum") : 1);
         $imageRequest = ($request->input("imageNum") ? $request->input("imageNum") : 0);
-
-        //TODO: move this to a function to get an image
-        $maxImage = 0;
-        $files = glob("/home/pi/blog/public/img/*");
-        if ($files) {
-            $maxImage = count($files);
-        }
-        if ($imageRequest < 0) {
-            $imageRequest = $maxImage - 1;
-        }
-        else if ($imageRequest == $maxImage) {
-            $imageRequest = 0;
-        }
-        $image = "img/".basename($files[$imageRequest]);
-        //End image function
-
-        //TODO: move this to a function to derive a track
-        $maxTrack = Music::count();
-        if ($trackRequest > $maxTrack) {
-            $trackRequest = 1;
-        }
-        else if ($trackRequest < 1) {
-            $trackRequest = $maxTrack;
-        }
-        $track = Music::where("id", "=", $trackRequest)->get()[0];
-        //End track function
+        $image = $this->getImage($imageRequest);
+        $trackRequest = $request->input("trackNum");
+	$track = $this->getTrack($trackRequest, $request);
         //EXIF: Model, ExposureTime, FocalLength, COMPUTED ApertureFNumber, and ISOSpeedRatings
         //$exifInfo = exif_read_data("/home/pi/blog/public/img/germany.jpg");
         return view('welcome')
@@ -75,5 +51,37 @@ class HomeController extends Controller
             'track' => $track,
             'trackNum' => $trackRequest,
             'imageNum' => $imageRequest,]);
+    }
+
+    private function getImage($imageNumber) {
+        $maxImage = 0;
+        $files = glob("/home/pi/blog/public/img/*");
+        if ($files) {
+            $maxImage = count($files);
+        }
+        if ($imageNumber < 0) {
+            $imageNumber = $maxImage - 1;
+        }
+        else if ($imageNumber == $maxImage) {
+            $imageNumber = 0;
+        }
+        return "img/".basename($files[$imageNumber]);
+    }
+
+    private function getTrack($trackNum, $request) {
+        if (!$trackNum) {
+            $trackNum = 1;
+        }
+        if ($request->input('trackNum') === "0") {
+            $trackNum = 0;
+        }
+        $maxTrack = Music::count();
+        if ($trackNum > $maxTrack) {
+            $trackNum = 1;
+        }
+        if ($trackNum < 1) {
+            $trackNum = $maxTrack;
+        }
+        return Music::where("id", "=", $trackNum)->get()[0];
     }
 }
