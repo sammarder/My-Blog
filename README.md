@@ -14,6 +14,8 @@ Lessons learned:
 
 * Music is easy to play but ill be damned if i can get any decent data out of it
 
+* In order to get other routes, .htaccess needs to be linked and override needs to be set to all in apache config
+
 * TODO: Have photography respond to the arrow keys
 
 * TODO: Possibly figure out how to get the image to move
