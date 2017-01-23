@@ -25,7 +25,7 @@
                 </div>
             @endif
 
-            <div class="content" onkeydown="myF(event)">
+            <div class="content" onkeydown="myF(event, '{{$name}}', {{$trackNum}}, {{$imageNum}})">
                 <div class="row">
                     <div class="title m-b-md">
                         @if ($name)
@@ -49,12 +49,12 @@
                 </div>
                 <div class="row">
                     <div>
-                        <img src="{{ URL::asset('img/fall.jpg') }}">
+                        <img src="{{ URL::asset($image) }}">
                     </div>
                 </div>
                 <div class="row">
                     <audio controls>
-                        <source id="song" src="{{ URL::asset('music/11 - Steampowered.mp3') }}" type="audio/mpeg">
+                        <source id="song" src="{{ URL::asset('music/'.$track->filename) }}" type="audio/mpeg">
                     </audio>
                 </div>
             </div>

@@ -13,10 +13,11 @@ function hide (elem) {
 
 /*
 So the count variable is constant within a session
-Next step: Figure out how to get max value of array in here
-After that, figure out how to adjust the image and song accordingly
+Next step: Post to the php url
 */
-function myF(event) {
+function myF(event, name, track, image) {
+    countTrack = track;
+    countImage = image;
     var keyPressed = event.key;
     var expr = new RegExp("^Arrow.*");
     if (keyPressed === "ArrowLeft" || keyPressed === "ArrowDown") {
@@ -32,13 +33,7 @@ function myF(event) {
         countImage++;
     }
     //alert("You have gone to image " + countImage + " and song " + countTrack + ".");
-    if (!expr.match(x)) {
-        var newTrack = "http://mah-pi/music/07 - Aurora.mp3"
-        var audioElement = document.getElementById("song");
-        if (audioElement) {
-            audioElement.setAttribute('src', newTrack);
-        }
-        audioElement.parentNode.load();
-        alert("The key pressed was " + x);
-    }
+    var arguments = {"name": name, "trackNum": countTrack, "imageNum": countImage};
+    var arg = "name=" + encodeURI(name) + "&trackNum=" + encodeURI(countTrack) + "&imageNum=" + encodeURI(countImage);
+    window.location = "?" + arg;
 }

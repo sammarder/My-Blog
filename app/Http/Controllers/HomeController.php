@@ -68,12 +68,12 @@ class HomeController extends Controller
         //End track function
         //EXIF: Model, ExposureTime, FocalLength, COMPUTED ApertureFNumber, and ISOSpeedRatings
         //$exifInfo = exif_read_data("/home/pi/blog/public/img/germany.jpg");
-        //return view('welcome')
-        //    ->with(['name' => $name,
-        //    'links' => $links,
-        //    'image' => $image, //This will resolve to img/<pic>
-        //    'track' => $track,
-        //    'trackNum' => $trackRequest,
-        //    'imageNum' => $imageRequest,]);
+        return view('welcome')
+            ->with(['name' => $name,
+            'links' => $links,
+            'image' => $image, //This will resolve to img/<pic>
+            'track' => $track,
+            'trackNum' => $trackRequest,
+            'imageNum' => $imageRequest,]);
     }
 }
