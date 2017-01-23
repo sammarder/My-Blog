@@ -20,20 +20,27 @@ function myF(event, name, track, image) {
     countImage = image;
     var keyPressed = event.key;
     var expr = new RegExp("^Arrow.*");
+    var triggered = "";
     if (keyPressed === "ArrowLeft" || keyPressed === "ArrowDown") {
         countTrack--;
+        triggered = "ld";
     }
     else if (keyPressed === "ArrowRight" || keyPressed === "ArrowUp") {
         countTrack++;
+        triggered = "ru";
     }
     else if (keyPressed === "a" || keyPressed === "s") {
         countImage--;
+        triggered = "as";
     }
     else if (keyPressed === "d" || keyPressed === "w") {
         countImage++;
+        triggered = "dw";
     }
     //alert("You have gone to image " + countImage + " and song " + countTrack + ".");
     var arguments = {"name": name, "trackNum": countTrack, "imageNum": countImage};
     var arg = "name=" + encodeURI(name) + "&trackNum=" + encodeURI(countTrack) + "&imageNum=" + encodeURI(countImage);
-    window.location = "?" + arg;
+    if (triggered !== "") {
+        window.location = "?" + arg;
+    }
 }
