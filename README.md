@@ -16,6 +16,8 @@ Lessons learned:
 
 * In order to get other routes, .htaccess needs to be linked and override needs to be set to all in apache config
 
+* Also, to enable the rewrites, the command a2enmod rewrite must be executed as root
+
 * TODO: Have photography respond to the arrow keys
 
 * TODO: Possibly figure out how to get the image to move
