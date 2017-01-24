@@ -64,3 +64,10 @@ img {
   width: auto;
   padding: 25px
 }
+div.pic {
+  column-count: 2;
+}
+p.left-center {
+  text-align: left;
+  padding: 100px
+}
