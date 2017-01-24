@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="links">
                         @foreach($links as $link)
-                        <a href="{{ $link->link }}" onmouseover="show({{ $link->div_id }})" onmouseout="hide({{ $link->div_id }})">
+                        <a href="{{ route('photo') }}" onmouseover="show({{ $link->div_id }})" onmouseout="hide({{ $link->div_id }})">
                             {{ $link->link_text }}
                             <div class="tooltip" id="{{ $link->div_id }}">
                                 {{ $link->tip }}

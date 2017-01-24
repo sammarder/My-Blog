@@ -14,10 +14,8 @@ Route::get('/user/{id}', function ($id) {
     return 'User '.$id;
 });
 Route::get('/',  'HomeController@showName')->name('welcome');
-Route::get("/test",
-function () {
-    return view('photo');
-});
+//Route::get("photo", 'Pa
+Route::get("/test", function () {return view('photo');})->name('photo');
 
 //Auth::routes();
 
