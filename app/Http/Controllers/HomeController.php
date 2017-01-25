@@ -65,8 +65,6 @@ class HomeController extends Controller
         }
         if ($imageNumber < 0) {
             $imageNumber = $maxImage - 1;
-            print_r("we have less than 0");
-            print_r($imageNumber);
         }
         else if ($imageNumber == $maxImage) {
             $imageNumber = 0;
@@ -83,8 +81,6 @@ class HomeController extends Controller
         }
         if ($imageNumber < 0) {
             $imageNumber = $maxImage - 1;
-            print_r("we have less than 0");
-            print_r($imageNumber);
         }
         else if ($imageNumber == $maxImage) {
             $imageNumber = 0;
