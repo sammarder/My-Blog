@@ -22,7 +22,6 @@
                     </div>
                 </div>
                 <input type="hidden" name="imageNum" value={{ $imageNum }} />
-                {{-- TODO: Abstract this segment as much as possible --}}
                 <div class="pic flex-center">
                     <div class="column">
                         <img src="{{ URL::asset('img/'.$name) }}">

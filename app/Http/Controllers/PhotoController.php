@@ -6,7 +6,7 @@ use App\Http\Requests\Request;
 
 class PhotoController extends Controller
 {
-    //TODO: I want ApertureFNumber, Model, and lens but that last one may be difficult
+    //TODO: Make the imagenum and src more dynamic
     public function showPage(Request $request) {
         $imageNum = 0;
         $src = "/home/pi/blog/public/img/noms.jpg";

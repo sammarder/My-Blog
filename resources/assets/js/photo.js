@@ -1,3 +1,4 @@
+//TODO: Make this post back to the main photo page
 $(document).ready(function() {
     $("body").keydown(function() {
         var key = event.key;
