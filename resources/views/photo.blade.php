@@ -25,16 +25,17 @@
                 {{-- TODO: Abstract this segment as much as possible --}}
                 <div class="pic flex-center">
                     <div class="column">
-                        <img src="{{ URL::asset('img/fall.jpg') }}">
+                        <img src="{{ URL::asset('img/'.$name) }}">
                     </div>
                     <div class="column">
                         <p class="left-center">
-                            Image Title: fall<br><br>
-                            Camera Model: Canon Rebel t5i<br>
-                            Lens Length: 24mm<br><br>
-                            F Number: 22<br>
-                            ISO: 3200 <br>
-                            Shutter Speed: 53 seconds
+                            Image Title: {{ explode(".", $name)[0] }}<br><br>
+                            Camera Model: {{ $exifInfo['Model'] }}<br>
+                            {{--This is going to be annoying to deal with for nikons--}}
+                            Lens Length: {{ $exifInfo['FocalLength'] }}<br><br>
+                            F Number: {{ $exifInfo['COMPUTED']['ApertureFNumber'] }}<br>
+                            ISO: {{ $exifInfo['ISOSpeedRatings'] }}<br>
+                            Shutter Speed: {{ $exifInfo['ExposureTime'] }}
                         </p>
                     </div>
                 </div>
