@@ -32,10 +32,10 @@
                             @if ($photo)
                                 Camera Model: {{ $photo->model }}<br>
                                 {{--This is going to be annoying to deal with for nikons--}}
-                                Lens Length: {{ $photo->lens_length }}<br><br>
+                                Lens Length: {{ $photo->lens_length }}mm<br><br>
                                 F Number: f/{{ $photo->f_number }}<br>
                                 ISO: {{ $photo->iso }}<br>
-                                Shutter Speed: {{ $photo->shutter_speed }}
+                                Shutter Speed: {{ $photo->shutter_speed }} seconds
                             @endif
                         </p>
                     </div>
