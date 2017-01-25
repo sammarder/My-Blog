@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("body").keydown(function() {
         var key = event.key;
-        var currentImage = $('input[name=imageNum]');
+        var currentImage = $('input[name=imageNum]').val();
         if (key === "a" || key === "s" || key === "ArrowLeft" || key === "ArrowDown") {
             currentImage--;
             alert(currentImage);
