@@ -30,12 +30,14 @@
                     <div class="column">
                         <p class="left-center">
                             Image Title: {{ explode(".", $name)[0] }}<br><br>
-                            Camera Model: {{ $exifInfo['Model'] }}<br>
-                            {{--This is going to be annoying to deal with for nikons--}}
-                            Lens Length: {{ $exifInfo['FocalLength'] }}<br><br>
-                            F Number: {{ $exifInfo['COMPUTED']['ApertureFNumber'] }}<br>
-                            ISO: {{ $exifInfo['ISOSpeedRatings'] }}<br>
-                            Shutter Speed: {{ $exifInfo['ExposureTime'] }}
+                            @if (array_key_exists("Model", $exifInfo))
+                                Camera Model: {{ $exifInfo['Model'] }}<br>
+                                {{--This is going to be annoying to deal with for nikons--}}
+                                Lens Length: {{ $exifInfo['FocalLength'] }}<br><br>
+                                F Number: {{ $exifInfo['COMPUTED']['ApertureFNumber'] }}<br>
+                                ISO: {{ $exifInfo['ISOSpeedRatings'] }}<br>
+                                Shutter Speed: {{ $exifInfo['ExposureTime'] }}
+                            @endif
                         </p>
                     </div>
                 </div>

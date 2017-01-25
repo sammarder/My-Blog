@@ -9,7 +9,7 @@ class PhotoController extends Controller
     //TODO: I want ApertureFNumber, Model, and lens but that last one may be difficult
     public function showPage(Request $request) {
         $imageNum = 0;
-        $src = "/home/pi/blog/public/img/fall.jpg";
+        $src = "/home/pi/blog/public/img/noms.jpg";
 	$elements = explode("/", $src);
         $name = end($elements);
 	$exifInfo = exif_read_data($src);
