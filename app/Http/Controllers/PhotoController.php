@@ -8,12 +8,15 @@ class PhotoController extends Controller
 {
     //TODO: I want ApertureFNumber, Model, and lens but that last one may be difficult
     public function showPage(Request $request) {
-        $src = "/home/pi/blog/public/img/germany.jpg";
+        $imageNum = 0;
+        $src = "/home/pi/blog/public/img/fall.jpg";
+	$elements = explode("/", $src);
+        $name = end($elements);
 	$exifInfo = exif_read_data($src);
         return view('photo')->with(
             ["src" => $src,
-            "name" => "germany.jpg",
-            "imageNum" => 0,
+            "name" =>  $name,
+            "imageNum" => $imageNum,
             "exifInfo" => $exifInfo,]);
     }
 }
