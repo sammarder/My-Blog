@@ -29,13 +29,13 @@
                     <div class="column">
                         <p class="left-center">
                             Image Title: {{ explode(".", $name)[0] }}<br><br>
-                            @if (array_key_exists("Model", $exifInfo))
-                                Camera Model: {{ $exifInfo['Model'] }}<br>
+                            @if ($photo)
+                                Camera Model: {{ $photo->model }}<br>
                                 {{--This is going to be annoying to deal with for nikons--}}
-                                Lens Length: {{ $exifInfo['FocalLength'] }}<br><br>
-                                F Number: {{ $exifInfo['COMPUTED']['ApertureFNumber'] }}<br>
-                                ISO: {{ $exifInfo['ISOSpeedRatings'] }}<br>
-                                Shutter Speed: {{ $exifInfo['ExposureTime'] }}
+                                Lens Length: {{ $photo->lens_length }}<br><br>
+                                F Number: f/{{ $photo->f_number }}<br>
+                                ISO: {{ $photo->iso }}<br>
+                                Shutter Speed: {{ $photo->shutter_speed }}
                             @endif
                         </p>
                     </div>
