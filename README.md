@@ -18,13 +18,17 @@ Lessons learned:
 
 * Also, to enable the rewrites, the command a2enmod rewrite must be executed as root
 
+* When adding a JS file you need to link it to the public folder to be visable
+
+* JQuery required a pointer to google's api for jquery
+
 * TODO: Have photography respond to the arrow keys
 
 * TODO: Possibly figure out how to get the image to move
 
 * TODO: Research how to get PHP to read camera/lens and other settings for each shot
 
-* Scope during unemployment: 
+* Scope during first round: 
 
     1. SQL driven as far as removing hardcoded strings
 
