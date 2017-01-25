@@ -10,7 +10,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}">
-        <script type="text/javascript" src="{{ URL::asset('js/welcome.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/photo.js') }}"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -20,6 +21,7 @@
                         Photography
                     </div>
                 </div>
+                <input type="hidden" name="imageNum" value=0 />
                 {{-- TODO: Abstract this segment as much as possible --}}
                 <div class="pic flex-center">
                     <div class="column">
