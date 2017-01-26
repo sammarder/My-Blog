@@ -24,13 +24,12 @@ class PhotoController extends Controller
         if (!isset($num)) {
             return 1;
         }
-		if ($num === "0") {
-			return $max;
-		}
+        if ($num === "0") {
+            return $max;
+        }
         $num = (int)$num;
-        print_r($num);
         if ($num < 1) {
-             return $max;
+            return $max;
         }
         else if ($num > $max) {
             return 1;
