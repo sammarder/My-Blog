@@ -39,7 +39,7 @@ class HomeController extends Controller
         $query = Link::where("owner", "=", $name);
         $links = $query->get();
         foreach($links as $link) {
-            if ($link->owner === "Sam") {
+            if (strpos($link->link, "http") === FALSE) {
                 $link->link = route($link->link);
             }
         }
