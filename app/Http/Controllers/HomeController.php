@@ -50,6 +50,7 @@ class HomeController extends Controller
         $track = $this->getTrack($trackRequest);
         //EXIF: Model, ExposureTime, FocalLength, COMPUTED ApertureFNumber, and ISOSpeedRatings
         //$exifInfo = exif_read_data("/home/pi/blog/public/img/germany.jpg");
+        //print_r(getcwd()); //var/www/html/
         return view('welcome')
             ->with(['name' => $name,
             'links' => $links,
@@ -61,7 +62,7 @@ class HomeController extends Controller
 
     private function getImage($imageNumber) {
         $imageNumber = (int)$imageNumber;
-        $files = glob("/home/pi/blog/public/img/*");
+        $files = glob("img/*");
         if ($files) {
             return "img/".basename($files[$imageNumber]);
         }
