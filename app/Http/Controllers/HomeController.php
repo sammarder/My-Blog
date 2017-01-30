@@ -34,7 +34,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showName(Request $request) {
-        $name = "Laravel";
+        $name = "Sam";
         if ($request->input("name")) {
             $names = explode(" ", $request->input("name"));
             for( $i = 0; $i < count($names); $i++) {
