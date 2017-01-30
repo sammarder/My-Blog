@@ -1,0 +1,11 @@
+#portrait{
+}
+body{
+    position: absolute;
+    width: 780px;
+    text-align: center;
+left: 50%;
+margin-left: -390px;
+
+}
+p.left-align {text-align: left;}
