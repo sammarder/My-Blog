@@ -34,8 +34,6 @@ class PhotoController extends Controller
         else if ($num > $max) {
             return 1;
         }
-        else {
-            return $num;
-        }
+        return $num;
     }
 }

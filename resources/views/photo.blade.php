@@ -19,10 +19,8 @@
                 <a href="{{ route('welcome') }}">Back</a>
             </div>
             <div class="content">
-                <div class="row">
-                    <div class="title m-b-md">
-                        Photography
-                    </div>
+                <div class="row title m-b-md">
+                    Photography
                 </div>
                 <input type="hidden" name="imageNum" value={{ $imageNum }} />
                 <div class="pic flex-center">
