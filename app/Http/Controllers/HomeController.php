@@ -27,6 +27,12 @@ class HomeController extends Controller
        //return view('home');
     }
 
+    /**
+     * Get information for the home page
+     *
+     * @param App\Http\Requests\Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function showName(Request $request) {
         $name = "Laravel";
         if ($request->input("name")) {
@@ -58,13 +64,15 @@ class HomeController extends Controller
             'track' => $track,
             'trackNum' => $trackRequest,
             'imageNum' => $imageRequest,]);
+//       print_r("Something <br> Beatles <br><br>");
+//       print_r("<p>Long live Rock!</p><p>Jack Black</p>");
     }
 
     private function getImage($imageNumber) {
         $imageNumber = (int)$imageNumber;
         $files = glob("img/*");
         if ($files) {
-            return "img/".basename($files[$imageNumber]);
+            return $files[$imageNumber];
         }
     }
 
@@ -74,7 +82,7 @@ class HomeController extends Controller
             return 0;
         }
         $imageNumber = (int)$imageNumber;
-        $files = glob("/home/pi/blog/public/img/*");
+        $files = glob("img/*");
         if ($files) {
             $maxImage = count($files);
         }
