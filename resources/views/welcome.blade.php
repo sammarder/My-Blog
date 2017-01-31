@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <p>{{$track->title}}</p>
+                    <p>{{$track->title}} by {{$track->artist}}</p>
                     <audio controls>
                         <source id="song" src="{{ URL::asset('music/'.$track->filename) }}" type="audio/mpeg">
                     </audio>
