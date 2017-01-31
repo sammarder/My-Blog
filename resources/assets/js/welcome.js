@@ -11,10 +11,6 @@ function hide (elem) {
     elem.style.display=""; 
 }
 
-/*
-So the count variable is constant within a session
-Next step: Post to the php url
-*/
 function myF(event, name, track, image) {
     countTrack = track;
     countImage = image;
@@ -43,4 +39,12 @@ function myF(event, name, track, image) {
     if (triggered !== "") {
         window.location = "?" + arg;
     }
+}
+
+function next(event, name, track) {
+    track = track + 1;
+    window.location = "?name=" + encodeURI(name) + "&trackNum=" + encodeURI(track);
+    var song = document.getElementById("myMusic");
+    song.autoplay = true;
+    song.load();
 }
