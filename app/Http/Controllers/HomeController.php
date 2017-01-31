@@ -70,7 +70,7 @@ class HomeController extends Controller
 
     private function getImage($imageNumber) {
         $imageNumber = (int)$imageNumber;
-        $files = glob("img/*");
+        $files = glob("img/*small.jpg");
         if ($files) {
             return $files[$imageNumber];
         }
@@ -82,7 +82,7 @@ class HomeController extends Controller
             return 0;
         }
         $imageNumber = (int)$imageNumber;
-        $files = glob("img/*");
+        $files = glob("img/*small.jpg");
         if ($files) {
             $maxImage = count($files);
         }
