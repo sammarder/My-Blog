@@ -27,7 +27,7 @@
 
             <div class="content" onkeydown="myF(event, '{{$name}}', {{$trackNum}}, {{$imageNum}})">
                 <div class="row">
-                    <div class="title m-b-md">
+                    <div class="title m-b-md" title="A driven programmer">
                         @if ($name)
                             {{ $name }}
                         @else
@@ -46,12 +46,12 @@
                 </div>
                 <div class="row">
                     <div>
-                        <img src="{{ URL::asset($image) }}">
+                        <img src="{{ URL::asset($image) }}" title="Change using the wasd keys">
                     </div>
                 </div>
                 <div class="row">
                     <p>{{$track->title}} by {{$track->artist}}</p>
-                    <audio id="myMusic" onended="next(event, '{{$name}}', {{$trackNum}})" controls {{$auto}}>
+                    <audio id="myMusic" onended="next(event, '{{$name}}', {{$trackNum}})" controls {{$auto}} title="Change by using the arrow keys">
                         <source id="song" src="{{ URL::asset('music/'.$track->filename) }}" type="audio/mpeg">
                     </audio>
                 </div>
