@@ -25,7 +25,7 @@
                 </div>
             @endif
 
-            <div class="content" onkeydown="myF(event, '{{$name}}', {{$trackNum}}, {{$imageNum}})">
+            <div class="content" onkeydown="changeMedia(event, '{{$name}}', {{$trackNum}}, {{$imageNum}})">
                 <div class="row">
                     <div class="title m-b-md" title="A driven programmer">
                         @if ($name)

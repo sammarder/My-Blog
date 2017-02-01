@@ -4,14 +4,7 @@ function foo(name) {
     alert("hey " + name);
 }
 
-function show (elem) {  
-    elem.style.display="block";
-}
-function hide (elem) { 
-    elem.style.display=""; 
-}
-
-function myF(event, name, track, image) {
+function changeMedia(event, name, track, image) {
     countTrack = track;
     countImage = image;
     var keyPressed = event.key;
