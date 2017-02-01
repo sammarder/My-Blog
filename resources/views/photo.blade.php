@@ -25,7 +25,7 @@
                 <input type="hidden" name="imageNum" value={{ $imageNum }} />
                 <div class="pic flex-center">
                     <div class="column">
-                        <img src="{{ URL::asset('img/'.$name) }}">
+                        <img src="{{ URL::asset('img/'.$name) }}" title="Try hitting wasd or arrow keys">
                     </div>
                     <div class="column">
                         <p class="left-center">
