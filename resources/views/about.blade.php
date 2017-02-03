@@ -19,8 +19,6 @@
 
         <p class="left-align">This site makes use of the Laravel PHP framework as its back bone for routing and controlling the passage of information from the MySQL database to the frontend. Each page makes use of a different JS library except for this one.</p>
 
-        <p class="left-align">The home page uses vanilla JS with events being managed by the HTML side. It is encouraged to try hitting tab and either the wasd or arrow keys here to see how the page reacts. Also, if you provide /?name=[name] at the end of the home page, you can see that name as the title of the page.</p>
-
-        <p class="left-align">The photo page makes use of jQuery for interaction. All you have to do is hit wasd or an arrow key and the image will change along with the information about that image.</p>
+        <p class="left-align">How it works:<br>On the homepage, hit tab folled by either the wasd or the arrow keys<br>On the photo page, try just hitting wasd or arrow keys<br>Sadly this does not work on all browsers at this time</p>
     </body>
 </html>
