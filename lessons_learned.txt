@@ -22,16 +22,8 @@ Lessons learned:
 
 * JQuery required a pointer to google's api for jquery
 
-* TODO: Have photography respond to the arrow keys
+* Not all browsers play well with my interaction model
 
-* TODO: Possibly figure out how to get the image to move
+* To enable SSL, you really should use something like letsencrypt certs
 
-* TODO: Research how to get PHP to read camera/lens and other settings for each shot
-
-* Scope during first round: 
-
-    1. SQL driven as far as removing hardcoded strings
-
-    2. POC limited on JS bells and whistles
-
-    3. Keep PHP reasonably tidy
+* Always pay attention to the costs involved with using a given technology!
