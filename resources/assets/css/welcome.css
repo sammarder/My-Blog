@@ -65,7 +65,7 @@ div.container {
     text-color: #636b6f;
     padding: 10px 20px;
 }
-/* ----------- Desktop computers ----------- */
+/* --- Portrait for smartphones --- */
 @media screen 
   and (min-device-width: 320px) 
 {
@@ -73,12 +73,14 @@ div.container {
   p { font-size: 15px; }
   .title{ font-size: 30px; }
 }
+/* --- Landscape for smartphones --- */
 @media screen
   and (min-device-width: 480px)
 {
   img { max-height: 150px; }
   .title { font-size: 45px; }
 }
+/* --- Portrait for tablets --- */
 @media screen
   and (min-device-width: 641px)
 {
@@ -86,6 +88,7 @@ div.container {
   p { font-size: 18px; }
   .title { font-size: 60px; }
 }
+/* --- Landscape for tablets --- */
 @media screen
   and (min-device-width: 961px)
 {
@@ -93,6 +96,7 @@ div.container {
   p { font-size: 21px; }
   .title { font-size: 70px; }
 }
+/* --- Laptop --- */
 @media screen 
   and (min-device-width: 1224px)
 {
