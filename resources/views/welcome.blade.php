@@ -12,19 +12,8 @@
 	<link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}">
         <script type="text/javascript" src="{{ URL::asset('js/welcome.js') }}"></script>
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-            @endif
-
+    <body >
+        <div class="flex-center">
             <div class="content" onkeydown="changeMedia(event, '{{$name}}', {{$trackNum}}, {{$imageNum}})">
                 <div class="row">
                     <div class="title m-b-md" title="A driven programmer">
@@ -36,7 +25,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="links">
+                    <div class="links flex-center">
                         @foreach($links as $link)
                         <a href="{{ $link->link }}" title="{{ $link->tip }}">
                             {{ $link->link_text }}

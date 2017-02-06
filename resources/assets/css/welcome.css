@@ -65,10 +65,43 @@ div.container {
     text-color: #636b6f;
     padding: 10px 20px;
 }
+/* ----------- Desktop computers ----------- */
+@media screen 
+  and (min-device-width: 320px) 
+{
+  img { max-height: 100px; }
+  p { font-size: 15px; }
+  .title{ font-size: 30px; }
+}
+@media screen
+  and (min-device-width: 480px)
+{
+  img { max-height: 150px; }
+  .title { font-size: 45px; }
+}
+@media screen
+  and (min-device-width: 641px)
+{
+  img { max-height: 275px; }
+  p { font-size: 18px; }
+  .title { font-size: 60px; }
+}
+@media screen
+  and (min-device-width: 961px)
+{
+  img { max-height: 350px; }
+  p { font-size: 21px; }
+  .title { font-size: 70px; }
+}
+@media screen 
+  and (min-device-width: 1224px)
+{
+  img { max-height: 400px; }
+  .title { font-size: 84px; }
+}
 img {
-    max-height: 400px;
-    width: auto;
-    padding: 25px
+  width: auto;
+  padding:25px;
 }
 div.pic {
     column-count: 2;

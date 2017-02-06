@@ -1,11 +1,29 @@
 #portrait{
 }
-body{
+@media screen
+  and (min-device-width: 320px){
+    body {
+        width: 200px;
+        margin-left: -100px;
+    }
+}
+@media screen
+  and (min-device-width: 480px){
+    body{
+        width: 300px;
+        margin-left: -150px;
+    }
+}
+@media screen
+  and (min-device-width: 780px){
+    body{
+        width: 780px;
+        margin-left: -390px;
+    }
+}
+body {
     position: absolute;
-    width: 780px;
     text-align: center;
-left: 50%;
-margin-left: -390px;
-
+    left: 50%;
 }
 p.left-align {text-align: left;}
