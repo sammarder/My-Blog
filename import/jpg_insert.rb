@@ -14,7 +14,7 @@ end
 
 if exif_info.exif? then
     h = exif_info.exif.to_hash
-    puts "('#{image_file}','#{h[:model]}', #{h[:exposure_time]}, #{h[:f_number]}, #{h[:iso_speed_ratings]}, #{h[:focal_length]})"
+    puts "('#{image_file}','#{h[:model]}', '#{h[:exposure_time]}', #{h[:f_number]}, #{h[:iso_speed_ratings]}, #{h[:focal_length]})"
 else
     puts "No EXIF information in this image"
 end
