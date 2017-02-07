@@ -102,6 +102,7 @@ div.container {
 {
   img { max-height: 400px; }
   .title { font-size: 84px; }
+  .mobile { display: none; }
 }
 img {
   width: auto;
