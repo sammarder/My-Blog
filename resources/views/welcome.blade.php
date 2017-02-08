@@ -13,7 +13,7 @@
         <script type="text/javascript" src="{{ URL::asset('js/welcome.js') }}"></script>
     </head>
     <body >
-        <form method="POST">
+        <form id="main" method="POST">
             {{ csrf_field() }}
             <div class="flex-center">
                 <div class="content" onkeydown="changeMedia(event, '{{$name}}', {{$trackNum}}, {{$imageNum}})">

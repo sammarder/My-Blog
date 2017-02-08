@@ -28,9 +28,8 @@ function changeMedia(event, name, track, image) {
     }
     //alert("You have gone to image " + countImage + " and song " + countTrack + ".");
     var arguments = {"name": name, "trackNum": countTrack, "imageNum": countImage};
-    var arg = "name=" + encodeURI(name) + "&trackNum=" + encodeURI(countTrack) + "&imageNum=" + encodeURI(countImage);
     if (triggered !== "") {
-        window.location = "?" + arg;
+        this.post("/", arguments, post);
     }
 }
 
@@ -40,4 +39,26 @@ function next(event, name, track) {
     var song = document.getElementById("myMusic");
     song.autoplay = true;
     song.load();
+}
+
+function post(path, params, method) {
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.getElementById("main");
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+         }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
 }
