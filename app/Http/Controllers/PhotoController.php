@@ -9,6 +9,13 @@ class PhotoController extends Controller
 {
     public function showPage(Request $request) {
         $imageNum = $this->getImageIndex($request->input("imageNum"));
+        if ($request->input("left") !== null){
+            $imageNum = $imageNum - 1;
+        }
+        if ($request->input("right") !== null){
+            $imageNum = $imageNum + 1;
+        }
+        $imageNum = $this->getImageIndex($imageNum);
         $max = Photo::count();
         $photo = Photo::where("id", "=", $imageNum)->get()[0];
 	$elements = explode("/", $photo->filename);
