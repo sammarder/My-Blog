@@ -49,12 +49,20 @@ class HomeController extends Controller
                 $link->link = route($link->link);
             }
         }
+        $auto = "";
         $imageRequest = $this->resolveImage($request->input("imageNum"));
+        if ($request->input("left") !== null){
+            $imageRequest = $imageRequest - 1;
+        }
+        if ($request->input("right") !== null){
+            $imageRequest = $imageRequest + 1;
+        }
+        $imageRequest = $this->resolveImage($imageRequest);
         $image = $this->getImage($imageRequest);
         $trackRequest = $request->input("trackNum");
         $trackRequest = $this->resolveTrack($request->input("trackNum"));
         $track = $this->getTrack($trackRequest);
-        $auto = "";
+        
         if ((null === $request->input("imageNum")) && (null !== $request->input("trackNum"))) {
             $auto = "autoplay";
         }
