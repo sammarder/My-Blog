@@ -19,7 +19,6 @@ class PhotoController extends Controller
             $imageNum = $imageNum + 1;
         }
         $imageNum = $this->getImageIndex($imageNum);
-        $max = Photo::count();
         $photo = Photo::where("id", "=", $imageNum)->get()[0];
 	$elements = explode("/", $photo->filename);
         $name = end($elements);
