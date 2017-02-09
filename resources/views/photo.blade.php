@@ -5,9 +5,7 @@
         <form id="photo" method="POST">
         {{ csrf_field() }}
             <div class="flex-center position-ref full-height">
-                <div class="top-left links">
-                    <a href="{{ route('welcome') }}">Back</a>
-                </div>
+                @include("nav")
                 <div class="content">
                     <div class="row title m-b-md">
                         Photography
