@@ -50,7 +50,10 @@ class HomeController extends Controller
             }
         }
         $auto = "";
-        $imageRequest = $this->resolveImage($request->input("imageNum"));
+        $imageRequest = 0;
+        if ($request->input("imageNum") !== null){
+            $imageRequest = $request->input("imageNum");
+        }
         if ($request->input("left") !== null){
             $imageRequest = $imageRequest - 1;
         }
@@ -91,9 +94,6 @@ class HomeController extends Controller
 
     private function resolveImage($imageNumber) {
         $maxImage = 0;
-        if (!isset($imageNumber)) {
-            return 0;
-        }
         $imageNumber = (int)$imageNumber;
         $files = glob("img/*small.jpg");
         if ($files) {

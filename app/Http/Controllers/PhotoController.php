@@ -8,7 +8,10 @@ use App\Model\Photo;
 class PhotoController extends Controller
 {
     public function showPage(Request $request) {
-        $imageNum = $this->getImageIndex($request->input("imageNum"));
+        $imageNum = 1;
+        if ($request->input("imageNum") !== null) {
+            $imageNum = $request->input("imageNum");
+        }
         if ($request->input("left") !== null){
             $imageNum = $imageNum - 1;
         }
@@ -28,12 +31,6 @@ class PhotoController extends Controller
 
     private function getImageIndex($num) {
         $max = Photo::count();
-        if (!isset($num)) {
-            return 1;
-        }
-        if ($num === "0") {
-            return $max;
-        }
         $num = (int)$num;
         if ($num < 1) {
             return $max;
