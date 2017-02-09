@@ -1,4 +1,3 @@
-@section('content')
 <div class="pic flex-center">
     <div class="column">
         <button class="mobile" name="left"><</button>
@@ -11,7 +10,6 @@
             Image Title: {{ explode(".", $name)[0] }}<br><br>
             @if ($photo)
                 Camera Model: {{ $photo->model }}<br>
-                {{--This is going to be annoying to deal with for nikons--}}
                 Lens Length: {{ $photo->lens_length }}mm<br><br>
                 F Number: f/{{ $photo->f_number }}<br>
                 ISO: {{ $photo->iso }}<br>
