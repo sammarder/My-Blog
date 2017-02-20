@@ -3,6 +3,7 @@ $(document).ready(function() {
     $("body").keydown(function() {
         var key = event.key;
         var currentImage = $('input[name=imageNum]').val();
+        var token = $('input[name=_token]').val();
         var triggered = "";
         if (key === "a" || key === "s" || key === "ArrowLeft" || key === "ArrowDown") {
             currentImage--;
@@ -14,7 +15,8 @@ $(document).ready(function() {
         }
         
         if (triggered !== "") {
-            window.location = "?imageNum=" + encodeURI(currentImage);
+            $.post("https://mah-pi/photo", {imageNum: currentImage, _token: token})
+                 .done(function() {window.location = "?imageNum=" + currentImage;});
         }
     });
 }); 
