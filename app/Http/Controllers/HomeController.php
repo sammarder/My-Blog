@@ -37,18 +37,14 @@ class HomeController extends Controller
         $name = "Sam";
         if ($request->input("name")) {
             $names = explode(" ", $request->input("name"));
-            for( $i = 0; $i < count($names); $i++) {
-                $names[$i] = ucfirst($names[$i]);
-            }
+            $names = array_map(function($n){return ucfirst($n);}, $names);
             $name = implode(" ", $names);
         }
-        $query = Link::where("owner", "=", $name);
-        $links = $query->get();
-        foreach($links as $link) {
-            if (strpos($link->link, "http") === FALSE) {
-                $link->link = route($link->link);
-            }
-        }
+        $links = Link::where("owner", "=", $name)
+            ->get()
+            ->map(function($link) {
+                return $this->cleanLinks($link);
+            });
         $auto = "";
         $imageRequest = 0;
         if ($request->input("imageNum") !== null){
@@ -127,5 +123,13 @@ class HomeController extends Controller
 
     private function getTrack($trackNum) {
         return Music::where("id", "=", $trackNum)->get()[0];
+    }
+
+    private function cleanLinks($link){
+            $rlink = $link;
+            if (strpos($link->link, "http") === FALSE) {
+                $rlink->link = route($link->link);
+            }
+            return $rlink;
     }
 }
