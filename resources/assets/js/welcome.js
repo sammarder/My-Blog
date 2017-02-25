@@ -1,9 +1,3 @@
-var countTrack = 0;
-var countImage = 0;
-function foo(name) {
-    alert("hey " + name);
-}
-
 function changeMedia(event, name, track, image) {
     countTrack = track;
     countImage = image;
@@ -26,19 +20,11 @@ function changeMedia(event, name, track, image) {
         countImage++;
         triggered = "dw";
     }
-    //alert("You have gone to image " + countImage + " and song " + countTrack + ".");
+
     var arguments = {"name": name, "trackNum": countTrack, "imageNum": countImage};
     if (triggered !== "") {
-        this.post("/", arguments, post);
+        this.post("/", arguments);
     }
-}
-
-function next(event, name, track) {
-    track = track + 1;
-    window.location = "?name=" + encodeURI(name) + "&trackNum=" + encodeURI(track);
-    var song = document.getElementById("myMusic");
-    song.autoplay = true;
-    song.load();
 }
 
 function post(path, params, method) {
