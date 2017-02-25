@@ -17,6 +17,7 @@ class HomeController extends Controller
      */
     public function showHome(Request $request) {
        $name = $this->getName($request);
+
        $links = Link::where("owner", "=", $name)
             ->get()
             ->map(function($link) {
@@ -29,9 +30,6 @@ class HomeController extends Controller
         $trackRequest = $this->resolveTrack($request->input("trackNum"));
         $track = $this->getTrack($trackRequest);
 
-        //EXIF: Model, ExposureTime, FocalLength, COMPUTED ApertureFNumber, and ISOSpeedRatings
-        //$exifInfo = exif_read_data("/home/pi/blog/public/img/germany.jpg");
-        //print_r(getcwd()); //var/www/html/
         return view('welcome')
             ->with(['name' => $name,
             'links' => $links,
