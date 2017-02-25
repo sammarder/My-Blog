@@ -13,7 +13,7 @@
 Route::get('/user/{id}', function ($id) {
     return 'User '.$id;
 });
-Route::any('/',  'HomeController@showName')->name('welcome');
+Route::any('/',  'HomeController@showHome')->name('welcome');
 Route::any("photo", 'PhotoController@showPage')->name('photo');
 Route::get("food", function () {return view('food');})->name("food");
 Route::get("code", function () {return view('code');})->name("code");

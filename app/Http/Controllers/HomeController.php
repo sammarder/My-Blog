@@ -10,55 +10,20 @@ use App\Model\Music;
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {}
-
-   /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-       //return view('home');
-    }
-
-    /**
      * Get information for the home page
      *
      * @param App\Http\Requests\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function showName(Request $request) {
-        $name = "Sam";
-        if ($request->input("name")) {
-            $names = explode(" ", $request->input("name"));
-            $names = array_map(function($n){return ucfirst($n);}, $names);
-            $name = implode(" ", $names);
-        }
-        $links = Link::where("owner", "=", $name)
+    public function showHome(Request $request) {
+       $name = $this->getName($request);
+       $links = Link::where("owner", "=", $name)
             ->get()
             ->map(function($link) {
                 return $this->cleanLinks($link);
             });
-        $auto = "";
-        $imageRequest = 0;
-        if ($request->input("imageNum")){
-            $imageRequest = $request->input("imageNum");
-        }
 
-        if ($request->input("left")){
-            $imageRequest = $imageRequest - 1;
-        }
-        elseif ($request->input("right")){
-            $imageRequest = $imageRequest + 1;
-        }
-
-        $imageRequest = $this->resolveImage($imageRequest);
+        $imageRequest = $this->resolveImage($request);
         $image = $this->getImage($imageRequest);
 
         $trackRequest = $this->resolveTrack($request->input("trackNum"));
@@ -86,20 +51,31 @@ class HomeController extends Controller
         }
     }
 
-    private function resolveImage($imageNumber) {
+    private function resolveImage($request) {
+        $imageRequest = 0;
+        if ($request->input("imageNum")){
+            $imageRequest = $request->input("imageNum");
+        }
+
+        if ($request->input("left")){
+            $imageRequest = $imageRequest - 1;
+        }
+        elseif ($request->input("right")){
+            $imageRequest = $imageRequest + 1;
+        }
         $maxImage = 0;
-        $imageNumber = (int)$imageNumber;
         $files = glob("img/*small.jpg");
         if ($files) {
             $maxImage = count($files);
         }
-        if ($imageNumber < 0) {
-            $imageNumber = $maxImage - 1;
+
+        if ($imageRequest < 0) {
+            return $maxImage - 1;
         }
-        else if ($imageNumber == $maxImage) {
-            $imageNumber = 0;
+        else if ($imageRequest == $maxImage) {
+            return 0;
         }
-        return $imageNumber;
+        return $imageRequest;
     }
 
     private function resolveTrack($trackNum) {
@@ -129,5 +105,15 @@ class HomeController extends Controller
             $rlink->link = route($link->link);
         }
         return $rlink;
+    }
+
+    private function getName($request){
+        $name = "Sam";
+        if ($request->input("name")) {
+            $names = explode(" ", $request->input("name"));
+            $names = array_map(function($n){return ucfirst($n);}, $names);
+            $name = implode(" ", $names);
+        }
+        return $name;
     }
 }
