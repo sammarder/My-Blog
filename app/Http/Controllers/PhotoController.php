@@ -8,17 +8,7 @@ use App\Model\Photo;
 class PhotoController extends Controller
 {
     public function showPage(Request $request) {
-        $imageNum = 1;
-        if ($request->input("imageNum") !== null) {
-            $imageNum = $request->input("imageNum");
-        }
-        if ($request->input("left") !== null){
-            $imageNum = $imageNum - 1;
-        }
-        if ($request->input("right") !== null){
-            $imageNum = $imageNum + 1;
-        }
-        $imageNum = $this->getImageIndex($imageNum);
+        $imageNum = $this->getImageIndex($this->resolveRequest($request));
         $photo = Photo::where("id", "=", $imageNum)->get()[0];
 	$elements = explode("/", $photo->filename);
         $name = end($elements);
@@ -30,7 +20,6 @@ class PhotoController extends Controller
 
     private function getImageIndex($num) {
         $max = Photo::count();
-        $num = (int)$num;
         if ($num < 1) {
             return $max;
         }
@@ -38,5 +27,19 @@ class PhotoController extends Controller
             return 1;
         }
         return $num;
+    }
+
+    private function resolveRequest($request){
+        $imageNum = 1;
+        if ($request->input("imageNum") !== null) {
+            return $request->input("imageNum");
+        }
+        if ($request->input("left") !== null){
+            return $imageNum - 1;
+        }
+        if ($request->input("right") !== null){
+            return $imageNum + 1;
+        }
+        return $imageNum;
     }
 }
