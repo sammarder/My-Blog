@@ -47,24 +47,23 @@ class HomeController extends Controller
             });
         $auto = "";
         $imageRequest = 0;
-        if ($request->input("imageNum") !== null){
+        if ($request->input("imageNum")){
             $imageRequest = $request->input("imageNum");
         }
-        if ($request->input("left") !== null){
+
+        if ($request->input("left")){
             $imageRequest = $imageRequest - 1;
         }
-        if ($request->input("right") !== null){
+        elseif ($request->input("right")){
             $imageRequest = $imageRequest + 1;
         }
+
         $imageRequest = $this->resolveImage($imageRequest);
         $image = $this->getImage($imageRequest);
-        $trackRequest = $request->input("trackNum");
+
         $trackRequest = $this->resolveTrack($request->input("trackNum"));
         $track = $this->getTrack($trackRequest);
-        
-        if ((null === $request->input("imageNum")) && (null !== $request->input("trackNum"))) {
-            $auto = "autoplay";
-        }
+
         //EXIF: Model, ExposureTime, FocalLength, COMPUTED ApertureFNumber, and ISOSpeedRatings
         //$exifInfo = exif_read_data("/home/pi/blog/public/img/germany.jpg");
         //print_r(getcwd()); //var/www/html/
@@ -74,8 +73,7 @@ class HomeController extends Controller
             'image' => $image, //This will resolve to img/<pic>
             'track' => $track,
             'trackNum' => $trackRequest,
-            'imageNum' => $imageRequest,
-            'auto' => $auto,]);
+            'imageNum' => $imageRequest,]);
 //       print_r("Something <br> Beatles <br><br>");
 //       print_r("<p>Long live Rock!</p><p>Jack Black</p>");
     }
@@ -126,10 +124,10 @@ class HomeController extends Controller
     }
 
     private function cleanLinks($link){
-            $rlink = $link;
-            if (strpos($link->link, "http") === FALSE) {
-                $rlink->link = route($link->link);
-            }
-            return $rlink;
+        $rlink = $link;
+        if (strpos($link->link, "http") === FALSE) {
+            $rlink->link = route($link->link);
+        }
+        return $rlink;
     }
 }
