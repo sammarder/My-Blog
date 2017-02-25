@@ -2,17 +2,19 @@
 $(document).ready(function() {
     $("body").keydown(function() {
         var key = event.key;
-        var currentImage = $('input[name=imageNum]').val();
-        var token = $('input[name=_token]').val();
-        if (key === "a" || key === "s" || key === "ArrowLeft" || key === "ArrowDown") {
-            currentImage--;
+
+        var posting = function(offset){
+            var currentImage = parseInt($('input[name=imageNum]').val()) + offset;
+            var token = $('input[name=_token]').val();
             $.post("https://mah-pi/photo", {imageNum: currentImage, _token: token})
                  .done(function() {window.location = "?imageNum=" + currentImage;});
+        };
+
+        if (key === "a" || key === "s" || key === "ArrowLeft" || key === "ArrowDown") {
+            posting(-1); //Go back one image
         }
         else if (key === "w" || key === "d" || key === "ArrowUp" || key === "ArrowRight") {
-            currentImage++;
-            $.post("https://mah-pi/photo", {imageNum: currentImage, _token: token})
-                 .done(function() {window.location = "?imageNum=" + currentImage;});
+            posting(+1); //Go forward one image
         }
     });
 });
