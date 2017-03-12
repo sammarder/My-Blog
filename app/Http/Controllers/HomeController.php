@@ -43,10 +43,16 @@ class HomeController extends Controller
 
     private function getImage($imageNumber) {
         $imageNumber = (int)$imageNumber;
-        $files = glob("img/*small.jpg");
+        $files = $this->getPhotos();
         if ($files) {
             return $files[$imageNumber];
         }
+    }
+
+    private function getPhotos() {
+        $gif = glob("img/*gif");
+        $jpeg = glob("img/*small.jpg");
+        return array_merge($jpeg, $gif);
     }
 
     private function resolveImage($request) {
@@ -62,7 +68,7 @@ class HomeController extends Controller
             $imageRequest = $imageRequest + 1;
         }
         $maxImage = 0;
-        $files = glob("img/*small.jpg");
+        $files = $this->getPhotos();
         if ($files) {
             $maxImage = count($files);
         }
