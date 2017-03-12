@@ -52,7 +52,9 @@ class HomeController extends Controller
     private function getPhotos() {
         $gif = glob("img/*gif");
         $jpeg = glob("img/*small.jpg");
-        return array_merge($jpeg, $gif);
+        $result = array_merge($jpeg, $gif);
+        sort($result);
+        return $result;
     }
 
     private function resolveImage($request) {
