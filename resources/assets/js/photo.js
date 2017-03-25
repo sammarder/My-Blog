@@ -17,4 +17,9 @@ $(document).ready(function() {
             posting(+1); //Go forward one image
         }
     });
+    $("img").click(function() {
+        var clip = 'clips/chirping.wav';
+        var audio = new Audio(clip);
+        audio.play();
+    });
 });
