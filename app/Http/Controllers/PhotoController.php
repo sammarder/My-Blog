@@ -10,11 +10,8 @@ class PhotoController extends Controller
     public function showPage(Request $request) {
         $imageNum = $this->getImageIndex($this->resolveRequest($request));
         $photo = Photo::where("id", "=", $imageNum)->get()[0];
-	$elements = explode("/", $photo->filename);
-        $name = end($elements);
-        return view('photo')->with(
-            ["name" =>  $name,
-            "imageNum" => $imageNum,
+	return view('photo')->with(
+            ["imageNum" => $imageNum,
             "photo" => $photo,]);
     }
 
