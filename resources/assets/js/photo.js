@@ -18,8 +18,10 @@ $(document).ready(function() {
         }
     });
     $("img").click(function() {
-        var clip = 'clips/chirping.wav';
-        var audio = new Audio(clip);
-        audio.play();
+        var clip = $('input[name=clip]').val();
+        if (clip !== "") {
+            var audio = new Audio("clips/" + clip + ".wav");
+            audio.play();
+        }
     });
 });

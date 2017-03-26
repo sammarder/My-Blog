@@ -9,6 +9,7 @@
         <p class="left-center">
             Image Title: {{ explode(".", $name)[0] }}<br><br>
             @if ($photo)
+                <input type="hidden" name="clip" value="{{ $photo->clip }}">
                 Camera Model: {{ $photo->model }}<br>
                 Lens Length: {{ $photo->lens_length }}mm<br><br>
                 F Number: f/{{ $photo->f_number }}<br>
