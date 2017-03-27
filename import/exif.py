@@ -7,7 +7,7 @@ winter = (12, 1, 2)
 spring = (3, 4, 5)
 summer = (6, 7, 8)
 
-insert = "INSERT IGNORE INTO photos (name,model,shutter_speed,f_number,iso,lens_length,year,season) VALUES (\""
+insert = "INSERT IGNORE INTO photos (name,year,season) VALUES (\""
 #print(sys.argv[1])
 absoluteFile = sys.argv[1]
 file = absoluteFile.split("/")
@@ -21,15 +21,13 @@ exif = {
     if k in PIL.ExifTags.TAGS
 }
 #print(exif)
-exposure = str(exif['ExposureTime'][0]) + "/" + str(exif['ExposureTime'][1])
-fnum = "{0}/{1}".format(exif["FNumber"][0], exif["FNumber"][1])
 
 dt = exif["DateTime"] 
 dp = dt.split(":")
 month = int(dp[1])
-data = "\"{0}\",\"{1}\",{2},{3},{4},\"{5}\"".format(exif['Model'], exposure, fnum, exif['ISOSpeedRatings'], exif['FocalLength'][0], dp[0])
+data = str(dp[0])
 insert += data
-#print(data)
+print(data)
 if (month in summer):
     insert += ",\"Summer\");"
 elif (month in spring):
