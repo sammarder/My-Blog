@@ -6,7 +6,7 @@ $(document).ready(function() {
         var posting = function(offset){
             var currentImage = parseInt($('input[name=imageNum]').val()) + offset;
             var token = $('input[name=_token]').val();
-            $.post("https://mah-pi/photo", {imageNum: currentImage, _token: token})
+            $.post(document.location.origin, {imageNum: currentImage, _token: token})
                  .done(function() {window.location = "?imageNum=" + currentImage;});
         };
 
