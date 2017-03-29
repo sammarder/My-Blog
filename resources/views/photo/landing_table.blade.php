@@ -1,12 +1,14 @@
 <div>
     <table>
-        <tr>
-            @foreach ($rows as $row)
+        @foreach ($rows as $row)
+            <tr>
                 @foreach ($row as $pic)
-                    <td> {{ $pic->name }} </td>
+                    <td>
+                        <img src="{{ URL::asset('img/photos/thumbnails/'.$pic->name.'.jpg') }}">
+                    </td>
                 @endforeach
-            @endforeach
-        </tr>
+            </tr>
+        @endforeach
     </table>
 </div>
 
