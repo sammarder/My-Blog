@@ -7,7 +7,18 @@ use App\Model\Photo;
 
 class PhotoController extends Controller
 {
-    public function showDetail(Request $request, $season, $id = 0){
+    public function showDetail(Request $request, $season, $id){
+        //This is confirmed to get the proper pic in happy path
+        //TODO: cover the case where the query returns nothing
+        $pic;
+        if (strcmp($season, "all") == 0) {
+           $pic = Photo::get()[$id];
+        }
+        else {
+           $pic = Photo::whereRaw("concat(season,year) = '$season'")->get()[$id];
+        }
+        print_r($pic);
+        //return view('detail')->with(['pic' => $pic]);
     }
 
     public function showLanding(Request $request) {
