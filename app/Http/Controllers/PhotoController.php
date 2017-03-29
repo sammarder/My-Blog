@@ -7,9 +7,17 @@ use App\Model\Photo;
 
 class PhotoController extends Controller
 {
+    public function showDetail(Request $request, $season, $id = 0){
+    }
+
     public function showLanding(Request $request) {
-        $photo = Photo::get();
-        $rows = $photo->chunk(4);
+        $photos = Photo::get();
+        $index = 0;
+        foreach($photos as $p){
+            $p->index = $index;
+            $index = $index + 1;
+        }
+        $rows = $photos->chunk(4);
         return view('landing')->with(
             ["rows" => $rows,]);
     }
