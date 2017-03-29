@@ -7,6 +7,13 @@ use App\Model\Photo;
 
 class PhotoController extends Controller
 {
+    public function showLanding(Request $request) {
+        $photo = Photo::get();
+        $rows = $photo->chunk(4);
+        return view('landing')->with(
+            ["rows" => $rows,]);
+    }
+
     public function showPage(Request $request) {
         $imageNum = $this->getImageIndex($this->resolveRequest($request));
         $photo = Photo::where("id", "=", $imageNum)->get()[0];
