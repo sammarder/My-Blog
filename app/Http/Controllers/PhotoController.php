@@ -22,7 +22,17 @@ class PhotoController extends Controller
     }
 
     public function showLanding(Request $request) {
-        $photos = Photo::get();
+        $season = "all";
+        if ($request->input('season')){
+            $season = $request->input('season');
+        }
+        $photos;
+        if ($season == "all") {
+            $photos = Photo::get();
+        }
+        else {
+            $photos = Photo::whereRaw("concat(season,year) = '$season'")->get();
+        }
         $index = 0;
         foreach($photos as $p){
             $p->index = $index;
@@ -32,7 +42,8 @@ class PhotoController extends Controller
         $seasons = Photo::selectRaw("concat(season, year) as value, concat(season, ' ', year) as display")->distinct()->get();
         return view('landing')->with(
             ["rows" => $rows,
-            "seasons" => $seasons,]);
+            "seasons" => $seasons,
+            "current" => $season,]);
     }
 
     public function showPage(Request $request) {
