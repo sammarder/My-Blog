@@ -16,6 +16,7 @@ Route::get('/user/{id}', function ($id) {
 Route::any('/',  'HomeController@showHome')->name('welcome');
 Route::any("photo", 'PhotoController@showPage')->name('photo');
 Route::any("landing", 'PhotoController@showLanding')->name('landing');
+Route::any('detail/{season}/{id}', 'PhotoController@showDetail')->name('detail');
 Route::get("food", function () {return view('food');})->name("food");
 Route::get("code", function () {return view('code');})->name("code");
 Route::get("about", function () {return view('about');})->name("about");

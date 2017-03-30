@@ -29,8 +29,10 @@ class PhotoController extends Controller
             $index = $index + 1;
         }
         $rows = $photos->chunk(4);
+        $seasons = Photo::selectRaw("concat(season, year) as value, concat(season, ' ', year) as display")->distinct()->get();
         return view('landing')->with(
-            ["rows" => $rows,]);
+            ["rows" => $rows,
+            "seasons" => $seasons,]);
     }
 
     public function showPage(Request $request) {
