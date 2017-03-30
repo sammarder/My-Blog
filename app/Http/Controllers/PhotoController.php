@@ -61,7 +61,7 @@ class PhotoController extends Controller
             $p->index = $index;
             $index = $index + 1;
         }
-        $rows = $photos->chunk(4);
+        $rows = $photos->chunk(3);
         $seasons = Photo::selectRaw("concat(season, year) as value, concat(season, ' ', year) as display")->distinct()->get();
         return view('landing')->with(
             ["rows" => $rows,

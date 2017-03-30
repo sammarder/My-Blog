@@ -3,3 +3,10 @@ img {
   width: auto;
   padding: 25px
 }
+.title {
+    margin-top: 40px;
+}
+center-me {
+  position = relative;
+  margin: 0 auto;
+}

@@ -1,4 +1,3 @@
-<div>
     <table>
         @foreach ($rows as $row)
             <tr>
@@ -12,5 +11,4 @@
             </tr>
         @endforeach
     </table>
-</div>
 
