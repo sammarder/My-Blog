@@ -11,14 +11,37 @@ class PhotoController extends Controller
         //This is confirmed to get the proper pic in happy path
         //TODO: cover the case where the query returns nothing
         $pic;
+        $prev = -1;
+        $first = -1;
+        $last = -1;
+        $next = -1;
+        $max = -1;
+        if ($id != 0){
+            $prev = $id - 1;
+            $first = 0;
+        }
         if (strcmp($season, "all") == 0) {
-           $pic = Photo::get()[$id];
+           $photos = Photo::get();
+           $max = count($photos) - 1;
+           $pic = $photos[$id];
         }
         else {
-           $pic = Photo::whereRaw("concat(season,year) = '$season'")->get()[$id];
+           $photos = Photo::whereRaw("concat(season,year) = '$season'")->get();
+           $max = count($photos) - 1;
+           $pic = $photos[$id];
         }
-        print_r($pic);
-        //return view('detail')->with(['pic' => $pic]);
+        if ($id != $max) {
+            $last = $max;
+            $next = $id + 1;
+        }
+        //print_r($pic);
+        return view('detail')->with(["pic" => $pic,
+            "id" => $id,
+            "prev" => $prev,
+            "first" => $first,
+            "next" => $next,
+            "last" => $last,
+            "season" => $season,]);
     }
 
     public function showLanding(Request $request) {

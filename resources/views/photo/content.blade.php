@@ -3,7 +3,7 @@
         <button class="mobile" name="left"><</button>
     </div>
     <div class="column">
-        <img src="{{ URL::asset('img/photos/'.$photo->name.'.jpg') }}" title="Try hitting wasd or arrow keys">
+        <img src="{{ URL::asset('img/photos/full/'.$photo->name.'.jpg') }}" title="Try hitting wasd or arrow keys">
     </div>
     <div class="column">
         <p class="left-center">
