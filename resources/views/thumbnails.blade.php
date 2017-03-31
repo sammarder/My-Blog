@@ -5,11 +5,11 @@
             <div class="content">
                 <div class="row">
                     <div class="title m-b-md">
-                        Photography
+                        {{ $season }}
                     </div>
                 </div>
                 <div class="row">
-                    @include("photo.folders")
+                    @include("photo.thumbnails")
                 </div>
             </div>
         </div>

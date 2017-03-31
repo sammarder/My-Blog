@@ -8,8 +8,6 @@ use App\Model\Photo;
 class PhotoController extends Controller
 {
     public function showDetail(Request $request, $season, $id){
-        //This is confirmed to get the proper pic in happy path
-        //TODO: cover the case where the query returns nothing
         $pic;
         $prev = -1;
         $first = -1;
@@ -34,7 +32,6 @@ class PhotoController extends Controller
             $last = $max;
             $next = $id + 1;
         }
-        //print_r($pic);
         return view('detail')->with(["pic" => $pic,
             "id" => $id,
             "prev" => $prev,
@@ -67,6 +64,26 @@ class PhotoController extends Controller
             ["rows" => $rows,
             "seasons" => $seasons,
             "current" => $season,]);
+    }
+
+    public function showFolders(Request $request){
+        $s = Photo::selectRaw("concat(season, year) as value, concat(season, ' ', year) as display")->distinct()->get();
+        $seasons = $s->chunk(3);
+        return view('folders')->with(
+            ["seasons" => $seasons,]);
+    }
+
+    public function showThumbnails(Request $request, $season) {
+        $t = Photo::whereRaw("concat(season,year) = '$season'")->get();
+        $id = 0;
+        foreach($t as $item) {
+            $item['index'] = $id;
+            $id = $id + 1;
+        }
+        $thumbnails = $t->chunk(10);
+        return view('thumbnails')->with(
+            ["thumbnails" => $thumbnails,
+            "season" => $season,]);
     }
 
     public function showPage(Request $request) {
