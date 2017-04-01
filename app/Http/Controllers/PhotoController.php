@@ -44,7 +44,7 @@ class PhotoController extends Controller
     public function showFolders(Request $request){
         $s = Photo::selectRaw("concat(season, year) as value, concat(season, ' ', year) as display")->distinct()->get();
         $sorted = $this->sortSeasons($s);
-        $seasons = $sorted->chunk(3);
+        $seasons = $sorted->chunk(5);
         return view('folders')->with(
             ["seasons" => $seasons,]);
     }
@@ -56,7 +56,7 @@ class PhotoController extends Controller
             $item['index'] = $id;
             $id = $id + 1;
         }
-        $thumbnails = $t->chunk(10);
+        $thumbnails = $t->chunk(5);
         return view('thumbnails')->with(
             ["thumbnails" => $thumbnails,
             "season" => $season,]);
