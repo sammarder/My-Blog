@@ -10,3 +10,8 @@ center-me {
   position = relative;
   margin: 0 auto;
 }
+.folder {
+  max-height: 100px;
+  width:auto;
+}
+table { margin: auto; }
