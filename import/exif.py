@@ -22,12 +22,12 @@ exif = {
 }
 #print(exif)
 
-dt = exif["DateTime"] 
+dt = exif["DateTimeDigitized"] 
 dp = dt.split(":")
 month = int(dp[1])
 data = str(dp[0])
 insert += data
-print(data)
+#print(exif)
 if (month in summer):
     insert += ",\"Summer\");"
 elif (month in spring):
