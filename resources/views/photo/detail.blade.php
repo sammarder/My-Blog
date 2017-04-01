@@ -4,11 +4,10 @@
     </div>
     <div class="column">
         <p class="left-center">
-            Image Title: {{ $pic->name }}<br><br>
             <input type="hidden" name="clip" value="{{ $pic->clip }}">
-            Season: {{ $pic->season." ".$pic->year }} <br>
+            {{ $pic->season." ".$pic->year }}<br>
             @if ($pic->location)
-                Location: {{ $pic->location }}<br>
+                {{ $pic->location }}<br>
             @endif
         </p>
     </div>

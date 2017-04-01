@@ -5,7 +5,7 @@
                 <td>
                     <a href="{{ route('detail', ['season' => $season, 'id' => $thumbnail['index']]) }}">
                         <div class="row">
-                            <img src="{{ URL::asset('img/photos/thumbnails/'.$thumbnail->name.'.jpg') }}">
+                            <img class="thumbnail" src="{{ URL::asset('img/photos/thumbnails/'.$thumbnail->name.'.jpg') }}">
                         </div>
                         <div class="row">
                             {{ $thumbnail['name'] }}

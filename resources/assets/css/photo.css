@@ -15,3 +15,20 @@ center-me {
   width:auto;
 }
 table { margin: auto; }
+a {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.index { 
+  font-weight: 600;
+  font-size: 25px;
+}
+.thumbnail {
+  box-shadow: 3px 3px 5px 6px #ccc;
+  padding: 0px;
+  margin: 25px;
+}
+p {
+  font-weight: lighter;
+}
