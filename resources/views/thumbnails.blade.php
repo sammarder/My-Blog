@@ -4,6 +4,9 @@
     <body>
         <div class="center.me">
             <div class="content">
+                <div class="top-left links">
+                    <a href="{{ route('photo') }}">Back</a>
+                </div>
                 <div class="row">
                     <div class="title m-b-md">
                         {{ preg_replace('/(\D+)(\d+)/', '$1 $2', $season) }}

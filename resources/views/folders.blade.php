@@ -4,18 +4,21 @@
     <body>
         <div class="center.me">
             <div class="content">
+                <div class="top-left links">
+                    <a href="{{ route('welcome') }}">Back</a>
+                </div>
                 <div class="column">
-                <div class="row">
-                    <div class="title m-b-md">
-                        Photography
+                    <div class="row">
+                        <div class="title m-b-md">
+                            Photography
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="center-me">
-                        @include("photo.folders")
+                    <div class="row">
+                        <div class="center-me">
+                            @include("photo.folders")
+                        </div>
                     </div>
-                </div>
-             </div>
+                 </div>
             </div>
         </div>
      </body>
