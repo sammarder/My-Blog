@@ -1,6 +1,6 @@
 <div class="pic flex-center">
     <div class="column">
-        <img src="{{ URL::asset('img/photos/full/'.$pic->name.'.jpg') }}" title="Try hitting wasd or arrow keys">
+        <img src="{{ URL::asset('img/photos/detail/'.$pic->name.'.jpg') }}">
     </div>
     <div class="column">
         <p class="left-center">
