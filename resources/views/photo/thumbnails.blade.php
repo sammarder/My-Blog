@@ -3,7 +3,7 @@
         <tr>
             @foreach ($row as $thumbnail)
                 <td>
-                    <a href="{{ route('pic', ['season' => $season, 'id' => $thumbnail['index']]) }}">
+                    <a href="{{ route('detail', ['season' => $season, 'id' => $thumbnail['index']]) }}">
                         <div class="row">
                             <img src="{{ URL::asset('img/photos/thumbnails/'.$thumbnail->name.'.jpg') }}">
                         </div>

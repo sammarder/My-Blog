@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang='en'>
     @include("photo.head")
     <body>
@@ -7,7 +8,7 @@
                     {{ ucfirst($pic->name) }}
                 </div>
                 <div class="row">
-                    @include("photo.newdetail")
+                    @include("photo.detail")
                 <div>
                 <div class="row">
                     @include("photo.links")
