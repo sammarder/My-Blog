@@ -15,7 +15,7 @@ Route::get('/user/{id}', function ($id) {
 });
 Route::any('/',  'HomeController@showHome')->name('welcome');
 Route::prefix("photography")->group(function () {
-    Route::any("/", 'PhotoController@showFolders')->name('folders');
+    Route::any("/", 'PhotoController@showFolders')->name('photo');
     Route::any("/{season}", 'PhotoController@showThumbnails')->name('thumbnails');
     Route::any("/{season}/{id}", 'PhotoController@showDetail')->name('detail');
 });
