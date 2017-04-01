@@ -20,7 +20,7 @@ $(document).ready(function() {
     $("img").click(function() {
         var clip = $('input[name=clip]').val();
         if (clip !== "") {
-            var audio = new Audio("clips/" + clip + ".wav");
+            var audio = new Audio("/clips/" + clip + ".wav");
             audio.play();
         }
     });
