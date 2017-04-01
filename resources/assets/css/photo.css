@@ -10,7 +10,7 @@ center-me {
   position = relative;
   margin: 0 auto;
 }
-.folder {
+img.folder {
   max-height: 100px;
   width:auto;
 }
@@ -29,6 +29,10 @@ a {
   padding: 0px;
   margin: 25px;
 }
-p {
-  font-weight: lighter;
+p.desc {
+  font-weight: 400;
+  font-size: 25px;
+}
+div.folder {
+  font-weight: 400;
 }

@@ -3,7 +3,7 @@
         <img src="{{ URL::asset('img/photos/detail/'.$pic->name.'.jpg') }}">
     </div>
     <div class="column">
-        <p class="left-center">
+        <p class="left-center desc">
             <input type="hidden" name="clip" value="{{ $pic->clip }}">
             {{ $pic->season." ".$pic->year }}<br>
             @if ($pic->location)

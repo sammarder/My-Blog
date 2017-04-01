@@ -7,7 +7,7 @@
                         <div class="row">
                             <img class="folder" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Folder-orange.svg/1024px-Folder-orange.svg.png">
                         </div>
-                        <div class="row">
+                        <div class="row folder">
                             {{ $season['display'] }}
                         </div>
                     </a>

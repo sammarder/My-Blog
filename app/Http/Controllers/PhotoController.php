@@ -43,7 +43,8 @@ class PhotoController extends Controller
 
     public function showFolders(Request $request){
         $s = Photo::selectRaw("concat(season, year) as value, concat(season, ' ', year) as display")->distinct()->get();
-        $seasons = $s->chunk(3);
+        $sorted = $this->sortSeasons($s);
+        $seasons = $sorted->chunk(3);
         return view('folders')->with(
             ["seasons" => $seasons,]);
     }
@@ -61,4 +62,24 @@ class PhotoController extends Controller
             "season" => $season,]);
     }
 
+    private function sortSeasons($seasons) {
+        foreach($seasons as $season) {
+            $s = explode(" ", $season['display']);
+            $date = "";
+            if ($s[0] === "Fall"){
+                $date = "September ";
+            }
+            elseif ($s[0] === "Winter") {
+                $date = "January";
+            }
+            elseif ($s[0] === "Spring") {
+                $date = "April";
+            }
+            elseif ($s[0] === "Summer") {
+                $date = "July";
+            }
+            $season['date'] = date_parse($date.$s[1]);
+        }
+        return $seasons->sortBy('date');
+    }
 }
