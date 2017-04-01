@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
     @include("photo.head")
     <body>
