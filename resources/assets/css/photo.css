@@ -1,8 +1,3 @@
-img {
-  max-height: 400px;
-  width: auto;
-  padding: 25px
-}
 .title {
     margin-top: 40px;
 }
@@ -17,22 +12,55 @@ img.folder {
 table { margin: auto; }
 a {
   font-weight: 600;
-  font-size: 25px;
 }
 
 .index { 
   font-weight: 600;
   font-size: 25px;
 }
-.thumbnail {
+img.thumbnail {
   box-shadow: 3px 3px 5px 6px #ccc;
   padding: 0px;
   margin: 25px;
 }
 p.desc {
   font-weight: 400;
-  font-size: 25px;
+  
 }
 div.folder {
   font-weight: 400;
+}
+/* --- Portrait for smartphones --- */ 
+@media screen
+  and (min-device-width: 320px) 
+{
+  img.thumbnail { max-height: 75px; } 
+  img.folder {max-height: 40px;}
+  a {font-size: 15px;}
+}
+/* --- Landscape for smartphones --- */ 
+@media screen
+  and (min-device-width: 480px) {}
+
+/* --- Portrait for tablets ---  TODO use the parent's tablets*/ 
+@media screen
+  and (min-device-width: 641px) 
+{
+  img.thumbnail { max-height: 100px; } 
+  a { font-size: 20px; }
+  img.folder { max-height: 70px; }
+} 
+
+/* --- Landscape for tablets --- */ 
+@media screen
+  and (min-device-width: 961px) 
+{ img.thumbnail {max-height: 90px; } }
+
+/* --- Laptop --- */ 
+@media screen
+  and (min-device-width: 1224px)
+{ 
+  img.thumbnail { max-height: 125px; } 
+  a { font-size: 25px; }
+  img.folder { max-height:100px;}
 }
