@@ -6,7 +6,7 @@
             <div class="content">
                 <div class="row">
                     <div class="title m-b-md">
-                        {{ $season }}
+                        {{ preg_replace('/(\D+)(\d+)/', '$1 $2', $season) }}
                     </div>
                 </div>
                 <div class="row">
