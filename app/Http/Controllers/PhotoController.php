@@ -8,7 +8,7 @@ use App\Model\Photo;
 class PhotoController extends Controller
 {
     public function showAll(Request $request) {
-        $p = Photo::get();
+        $p = Photo::orderBy('digitized', 'asc')->get();
         $photos = $p->chunk(5);
         return view('all')->with(['photos' => $photos]);
     }
