@@ -7,6 +7,12 @@ use App\Model\Photo;
 
 class PhotoController extends Controller
 {
+    public function showAll(Request $request) {
+        $p = Photo::get();
+        $photos = $p->chunk(5);
+        return view('all')->with(['photos' => $photos]);
+    }
+
     public function showDetail(Request $request, $season, $id){
         $pic;
         $prev = -1;
