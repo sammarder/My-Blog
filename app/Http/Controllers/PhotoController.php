@@ -20,17 +20,18 @@ class PhotoController extends Controller
         $last = -1;
         $next = -1;
         $max = -1;
+        $query::orderBy('digitized');
         if ($id != 0){
             $prev = $id - 1;
             $first = 0;
         }
         if (strcmp($season, "all") == 0) {
-           $photos = Photo::get();
+           $photos = $query->get();
            $max = count($photos) - 1;
            $pic = $photos[$id];
         }
         else {
-           $photos = Photo::whereRaw("concat(season,year) = '$season'")->get();
+           $photos = $query->whereRaw("concat(season,year) = '$season'")->get();
            $max = count($photos) - 1;
            $pic = $photos[$id];
         }
