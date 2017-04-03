@@ -57,7 +57,7 @@ class PhotoController extends Controller
     }
 
     public function showThumbnails(Request $request, $season) {
-        $t = Photo::whereRaw("concat(season,year) = '$season'")->get();
+        $t = Photo::whereRaw("concat(season,year) = '$season'")->orderBy('digitized')->get();
         $id = 0;
         foreach($t as $item) {
             $item['index'] = $id;
