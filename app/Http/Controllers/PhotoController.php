@@ -20,7 +20,7 @@ class PhotoController extends Controller
         $last = -1;
         $next = -1;
         $max = -1;
-        $query::orderBy('digitized');
+        $query = Photo::orderBy('digitized');
         if ($id != 0){
             $prev = $id - 1;
             $first = 0;
